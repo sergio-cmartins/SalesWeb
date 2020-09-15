@@ -5,9 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+    <Compile Remove="Migrations\20200909185039_initial.cs" />
+    <Compile Remove="Migrations\20200909185039_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200914161515_other-entities.cs" />
+    <Compile Remove="Migrations\20200914161515_other-entities.Designer.cs" />
+    <Compile Remove="Migrations\20200915175118_correcting_identities.cs" />
+    <Compile Remove="Migrations\20200915175118_correcting_identities.Designer.cs" />
+    <Compile Remove="Migrations\20200915175507_CorrectionIdentities.cs" />
+    <Compile Remove="Migrations\20200915175507_CorrectionIdentities.Designer.cs" />
+    <Compile Remove="Migrations\20200915180347_NewInitial.cs" />
+    <Compile Remove="Migrations\20200915180347_NewInitial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

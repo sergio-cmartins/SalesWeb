@@ -10,23 +10,21 @@ using SalesWeb.Data;
 namespace SalesWeb.Migrations
 {
     [DbContext(typeof(SalesWebContext))]
-    [Migration("20200914161515_other-entities")]
-    partial class otherentities
+    [Migration("20200915181328_CorrectedInitial")]
+    partial class CorrectedInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.7")
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("SalesWeb.Models.Department", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -39,9 +37,7 @@ namespace SalesWeb.Migrations
             modelBuilder.Entity("SalesWeb.Models.SalesRecord", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<double>("Amount")
                         .HasColumnType("float");
@@ -65,9 +61,7 @@ namespace SalesWeb.Migrations
             modelBuilder.Entity("SalesWeb.Models.Seller", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<double>("BaseSalary")
                         .HasColumnType("float");
