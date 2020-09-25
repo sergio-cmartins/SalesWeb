@@ -8,7 +8,7 @@ namespace SalesWeb.Models
 {
     public class Department
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
         public int Id { get; set; }
         public string Name { get; set; }
@@ -18,9 +18,8 @@ namespace SalesWeb.Models
         {
         }
 
-        public Department(int id, string name)
+        public Department(string name)
         {
-            Id = id;
             Name = name;
         }
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SalesWeb.Migrations
 {
-    public partial class CorrectedInitial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +11,8 @@ namespace SalesWeb.Migrations
                 name: "Department",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -23,7 +24,8 @@ namespace SalesWeb.Migrations
                 name: "Seller",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     BirthDate = table.Column<DateTime>(nullable: false),
@@ -45,7 +47,8 @@ namespace SalesWeb.Migrations
                 name: "SalesRecord",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(nullable: false),
                     Amount = table.Column<double>(nullable: false),
                     Status = table.Column<int>(nullable: false),

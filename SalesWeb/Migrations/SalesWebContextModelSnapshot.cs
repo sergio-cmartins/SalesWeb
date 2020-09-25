@@ -22,7 +22,9 @@ namespace SalesWeb.Migrations
             modelBuilder.Entity("SalesWeb.Models.Department", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -35,7 +37,9 @@ namespace SalesWeb.Migrations
             modelBuilder.Entity("SalesWeb.Models.SalesRecord", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<double>("Amount")
                         .HasColumnType("float");
@@ -59,7 +63,9 @@ namespace SalesWeb.Migrations
             modelBuilder.Entity("SalesWeb.Models.Seller", b =>
                 {
                     b.Property<int>("Id")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<double>("BaseSalary")
                         .HasColumnType("float");

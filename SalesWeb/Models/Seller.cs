@@ -8,7 +8,7 @@ namespace SalesWeb.Models
 {
     public class Seller
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
         public int Id { get; set; }
         public string Name { get; set; }
@@ -22,9 +22,8 @@ namespace SalesWeb.Models
         {
         }
 
-        public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Department department)
+        public Seller(string name, string email, DateTime birthDate, double baseSalary, Department department)
         {
-            Id = id;
             Name = name;
             Email = email;
             BirthDate = birthDate;

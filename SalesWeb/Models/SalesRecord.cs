@@ -7,7 +7,7 @@ namespace SalesWeb.Models
 {
     public class SalesRecord
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
         public int Id { get; set; }
         public DateTime Date { get; set; }
@@ -19,9 +19,8 @@ namespace SalesWeb.Models
         {
         }
 
-        public SalesRecord(int id, DateTime date, double amount, SalesStatus status, Seller seller)
+        public SalesRecord(DateTime date, double amount, SalesStatus status, Seller seller)
         {
-            Id = id;
             Date = date;
             Amount = amount;
             Status = status;
