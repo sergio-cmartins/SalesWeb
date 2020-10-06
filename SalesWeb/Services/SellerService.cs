@@ -1,8 +1,10 @@
-﻿using SalesWeb.Data;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using SalesWeb.Data;
 using SalesWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace SalesWeb.Services
@@ -21,9 +23,21 @@ namespace SalesWeb.Services
             return _context.Seller.ToList();
         }
 
+        public Seller FindById(int id)
+        {
+            return _context.Seller.FirstOrDefault(x => x.Id == id);
+        }
+
         public void Insert(Seller seller)
         {
             _context.Add(seller);
+            _context.SaveChanges();
+        }
+
+        public void Remove(int id)
+        {
+            var obj = _context.Seller.Find(id);
+            _context.Remove(obj);
             _context.SaveChanges();
         }
 
