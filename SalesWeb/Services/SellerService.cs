@@ -35,9 +35,16 @@ namespace SalesWeb.Services
 
         public async Task RemoveAsync(int id)
         {
-            var obj = await _context.Seller.FindAsync(id);
-            _context.Remove(obj);
-            await _context.SaveChangesAsync();
+            try
+            {
+                var obj = await _context.Seller.FindAsync(id);
+                _context.Remove(obj);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                throw new IntegrityException("Cannot Delete a Seller with recorded Sales");
+            }
         }
 
         public async Task UpdateAsync(Seller seller)
@@ -52,7 +59,7 @@ namespace SalesWeb.Services
                 _context.Update(seller);
                 await _context.SaveChangesAsync();
             }
-            catch(DbUpdateConcurrencyException e)
+            catch (DbUpdateConcurrencyException e)
             {
                 throw new DbUpdateConcurrencyException(e.Message);
             }
